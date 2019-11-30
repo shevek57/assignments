@@ -1,5 +1,5 @@
 body {background: gray;}
 
 .joke-item {
-    background: yellow;
+    border-bottom: 1px black solid;
 }
