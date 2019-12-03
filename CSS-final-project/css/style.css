@@ -1,0 +1,110 @@
+/* General structure of CSS:
+- body - put as much here as applies to minimize what needs to be added elsewhere
+- typography - h1, a, p
+- buttons (because, like typography, they are used throughout)
+- layout (header, main, section)
+*/
+
+
+body {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+
+/*      TYPOGRAPHY      */
+
+/*
+    Specify the font-weight in case the default weight for these are different because a person
+    has different weights installed
+    */
+h1,
+h2,
+strong {
+    font-weight: 900;
+}
+h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 24px;
+    color: #ef5839;
+}
+
+a {
+    color: #ef5839;
+}
+
+a:focus, 
+a:hover {
+    color: #104c90;
+}
+
+
+/*      BUTTONS      */
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+.btn-accent {
+    background-color: #ef5839;
+    color: #fff;
+}
+
+.btn-accent:hover {
+    color: #ef5839;
+    background-color: #fff;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #2e354f;
+}
+
+.btn-light:hover {
+    color: #fff;
+    background-color: #999;
+}
+
+/*      LAYOUT      */
+
+/* 
+    Apparently a common trick is to insert a div with a narrower width around the contents of
+    your layout tags.  That way, the background stretches across the whole width of the page but the
+    content is more contained right in the center.  Note that we don't add padding to the left or right
+    because we want that to be covered by margin auto.  Also, we remove top and bottom margins as much
+    as we can (including in the body) because we want to be able to think about the height based on just padding.
+
+    h1 et al. tags add a top and bottom margin by default.
+    */
+
+.container {
+    width: 620px;
+    margin: 0 auto;
+  /*  border: 2px solid magenta; <--- Just to see what's going on */
+}
+
+header {
+    background-color: #2e354f;
+    color: #fff;
+    padding: 45px 0;
+}
+
+section {
+    padding: 45px 0;
+}
+
+.section-one {
+    background-color: #fff;
+}
+
+.section-two {
+    background-color: #2e354f;
+    color: #fff;
+}
+
