@@ -1,0 +1,72 @@
+/*  Fonts
+-----
+font-family: 'Lora', serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif; /* most of the site uses this font */
+}
+
+/* =================
+Typography
+================= */
+
+h1 {
+    font-family: 'Lora', serif;
+    font-weight: 400; /* by default, h1 is bold, but we don't want that */
+    color: #143774;
+    font-size: 2rem;
+    margin: 0; /* so that we control the spacing */
+}
+
+.subtitle {
+    font-weight: 700;
+    color: #1792d2;
+    font-size: .75rem;
+    margin: 0;
+}
+
+/* =================
+Layout
+================= */
+ 
+header {
+    text-align: center;
+    background: #f8f8f8;
+    padding: 2em 0; 
+}
+
+/* navigation */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* this is what allows li to be next to each other */
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 1em; /* for responsive design, nice to give space around buttons (fingers) */
+}
+
+nav a {
+    text-decoration: none;
+    color: #707070;
+    font-weight: 700;
+    padding: .25em 0; /* get some spacing away from current page indicator */
+}
+
+nav a:hover,
+nav a:focus {
+    color: #1792d2;
+}
+
+.current-page {
+    border-bottom: 1px solid #707070;
+}
+
+.current-page:hover {
+    color: #707070; /* so that the current page doesn't look like a link */
+}
