@@ -1,11 +1,10 @@
 import React from 'react'
-import '../style.css'
 
-function Joke({question, punchLine}) {
+function Joke({question, punchline}) {
     return (
         <div className="joke-item">
             <p>{question ? 'Question:': ''} {question}</p>
-            <p>PunchLine: {punchLine}</p>
+            <p>Punchline: {punchline}</p>
         </div>
     )
 }
