@@ -50,6 +50,7 @@ class App extends Component {
     ]
 
     // creating an initial list within state keeps the checkboxes "controlled" from the start
+    // Here, we create a javascript object with the keys of the dietary options all with values of false as the initial state
     const initialDietaryRestrictions = this.dietaryOptions.reduce(
       (result, option) => ({...result, [option]: false}), 
       {}
@@ -71,8 +72,10 @@ class App extends Component {
   handleClick(event) {
     const { name, value, type, checked } = event.target;
     if (type === "checkbox") {
+      // special case for checkboxes, which are represented by an object
+      // For the dietaryRestrictions case, name is "dietaryRestrictions" and value is the particular key (one of the dietary options)
       this.setState(currState => ({
-        [name]: { ...currState[name], [value]: checked } // special case for checkboxes, which are represented by an object
+        [name]: { ...currState[name], [value]: checked } 
       }))
     } else {
       this.setState({
@@ -113,6 +116,7 @@ class App extends Component {
           <br /><br />
           <label>To which gender identity do you most identify?</label>
           <br />
+          {/* create the list of radio buttons from the provided gender options */}
           {this.genders.map(gender => (
             <label key={gender}>
               <input
@@ -126,6 +130,7 @@ class App extends Component {
             </label>
           ))}
           <br />
+          {/* create the list of pull-down options from the provided destination options */}
           <label>Select destination:</label>
           <select
             value={this.state.destination}
@@ -140,13 +145,14 @@ class App extends Component {
           </select>
           <br /><br />
           Dietary Preferences (check all that apply): <br />
+          {/* create the checkboxes from the provided dietary options */}
           {this.dietaryOptions.map(option => (
             <label key={option}>
               <input
                 type="checkbox"
-                value={option}
+                value={option} // we use value to tell 'handleClick' which key to change
                 name="dietaryRestrictions"
-                checked={this.state.dietaryRestrictions[option]}
+                checked={this.state.dietaryRestrictions[option]} // we change the specific key within the dietaryRestrictions object
                 onChange={this.handleClick}
               />
               {option}
@@ -166,6 +172,7 @@ class App extends Component {
         <p>Your destination: {this.state.destination}</p>
         <p>
           Your dietary restrictions:&nbsp;
+          {/* create the list dietary options selected. Filter the keys of the dietaryRestrictions object for the ones whose state is 'true' */}
           {Object.keys(this.state.dietaryRestrictions).filter(key => this.state.dietaryRestrictions[key]).join(", ")}
         </p>
       </main>
